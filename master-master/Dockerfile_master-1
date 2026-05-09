@@ -1,0 +1,8 @@
+FROM mysql:8.0
+
+COPY ./master-1.cnf /etc/mysql/conf.d/my.cnf
+COPY ./master-1.sql /docker-entrypoint-initdb.d/start.sql
+
+ENV MYSQL_ROOT_PASSWORD=12345
+
+CMD ["mysqld"]

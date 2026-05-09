@@ -1,0 +1,11 @@
+FROM mysql:8.0
+
+# Копируем файлы конфигурации
+COPY ./master.cnf /etc/mysql/conf.d/my.cnf
+COPY ./master.sql /docker-entrypoint-initdb.d/start.sql
+
+# Переменные окружения для настройки репликации
+ENV MYSQL_ROOT_PASSWORD=12345
+
+# Запускаем сервисы
+CMD ["mysqld"]

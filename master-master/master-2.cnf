@@ -1,0 +1,8 @@
+[mysqld]
+server-id=2
+log-bin=mysql-bin
+binlog_format=ROW
+
+# Чтобы избежать конфликтов автоинкрементных ID при двусторонней репликации
+auto_increment_increment=2
+auto_increment_offset=2
